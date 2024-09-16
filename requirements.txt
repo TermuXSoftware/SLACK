@@ -1,3 +1,15 @@
 requests
 threading
 time
+random
+string
+json
+os
+sys
+subprocess
+bs4
+BeautifulSoup
+colorama
+Colorate
+Colors
+pystyle
