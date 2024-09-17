@@ -110,6 +110,30 @@ def temp_mail():
                     print(f"Message Body:\n{message_body}")
         time.sleep(1)  # Wait for 10 seconds before checking for new messages
         
+def gmail_db():
+    filename = "GmailDB.txt"
+    num_lines = int(input("Enter the number of Gmail accounts: "))
+    with open(filename, 'r') as file:
+        lines = file.readlines()[:num_lines]
+        for line in lines:
+            print(line.strip())
+            
+def bitcoin_db():
+    filename = "BitcoinDB.txt"
+    num_lines = int(input("Enter the number of Bitcoin addresses: "))
+    with open(filename, 'r') as file:
+        lines = file.readlines()[:num_lines]
+        for line in lines:
+            print(line.strip())
+            
+def cards_db():
+    filename = "CardsDB.txt"
+    num_lines = int(input("Enter the number of Cards: "))
+    with open(filename, 'r') as file:
+        lines = file.readlines()[:num_lines]
+        for line in lines:
+            print(line.strip())
+ 
 def main():
     print(Colorate.Horizontal(Colors.blue_to_green, '''
           
@@ -124,7 +148,7 @@ def main():
                                         ░      ░      ░      ░  ░░ ░      ░  ░   
                                             ░    
                            
-                                              Version 2.0 By: @TermuXSoftwares      
+                                      Version 3.0 By: @TermuXSoftwares [Free edition]      
 
 '''))
     while True:
@@ -136,7 +160,10 @@ def main():
                                                     [4] IP Search          
                                                     [5] DDoS IP                   
                                                     [6] DDoS
-                                                    [7] Exit
+                                                    [7] Gmails DB
+                                                    [8] Cards DB
+                                                    [9] Bitcoins DB
+                                                    [10] Exit
 '''))
         choice = input(Colorate.Horizontal(Colors.blue_to_green, '''
                                               ┌───(User@Slack)─[~/Slack/Menu-1]      
@@ -185,6 +212,12 @@ def main():
                 number_of_threads = int(input(Colorate.Horizontal(Colors.blue_to_green, "Enter the number of threads: ")))
                 duration = int(input(Colorate.Horizontal(Colors.blue_to_green, "Enter the duration of the attack (in seconds): ")))
                 ddos_ip(ip, number_of_threads, duration)
+        elif choice == "7":
+                gmail_db()       
+        elif choice == "9":
+                bitcoin_db()
+        elif choice == "8":
+                cards_db()
         elif choice == "2":
             prefix = input(Colorate.Horizontal(Colors.blue_to_green, "Enter the prefix of the phone number (e.g., 999): "))
             if prefix == "" or prefix == " " or prefix == "6":
@@ -196,10 +229,10 @@ def main():
                 valid_numbers = search_russian_phone_numbers(prefix, length, num_results, random_order)
                 print(f"\nFound {len(valid_numbers)} valid phone numbers:")
                 for number in valid_numbers:
-                    print6(number)
+                    print(number)
         elif choice == "75253235235235":
             print("No threads to exit.")
-        elif choice == "7":
+        elif choice == "10":
             print("Exiting...")
             exit(1)
         else:
